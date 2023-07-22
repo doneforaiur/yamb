@@ -1,0 +1,654 @@
+@font-face {
+    font-family: config rounded;
+    src: url(ConfigRoundedRegular.eot);
+    src: local("Config Rounded Regular"), local("ConfigRoundedRegular"), url(ConfigRoundedRegular.eot?#iefix) format("embedded-opentype"), url(ConfigRoundedRegular.woff2) format("woff2"), url(ConfigRoundedRegular.woff) format("woff"), url(ConfigRoundedRegular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: config rounded;
+    src: url(ConfigRoundedBold.eot);
+    src: local("Config Rounded Bold"), local("ConfigRoundedBold"), url(ConfigRoundedBold.eot?#iefix) format("embedded-opentype"), url(ConfigRoundedBold.woff2) format("woff2"), url(ConfigRoundedBold.woff) format("woff"), url(ConfigRoundedBold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: config rounded;
+    src: url(ConfigRoundedItalic.eot);
+    src: local("Config Rounded Italic"), local("ConfigRoundedItalic"), url(ConfigRoundedItalic.eot?#iefix) format("embedded-opentype"), url(ConfigRoundedItalic.woff2) format("woff2"), url(ConfigRoundedItalic.woff) format("woff"), url(ConfigRoundedItalic.ttf) format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: config rounded;
+    src: url(ConfigRoundedBoldItalic.eot);
+    src: local("Config Rounded Bold Italic"), local("ConfigRoundedBoldItalic"), url(ConfigRoundedBoldItalic.eot?#iefix) format("embedded-opentype"), url(ConfigRoundedBoldItalic.woff2) format("woff2"), url(ConfigRoundedBoldItalic.woff) format("woff"), url(ConfigRoundedBoldItalic.ttf) format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: config rounded;
+    src: url(ConfigRoundedLight.eot);
+    src: local("Config Rounded Light"), local("ConfigRoundedLight"), url(ConfigRoundedLight.eot?#iefix) format("embedded-opentype"), url(ConfigRoundedLight.woff2) format("woff2"), url(ConfigRoundedLight.woff) format("woff"), url(ConfigRoundedLight.ttf) format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: config;
+    src: url(Config-LightItalic.eot);
+    src: local("Config Light Italic"), local("Config-LightItalic"), url(Config-LightItalic.eot?#iefix) format("embedded-opentype"), url(Config-LightItalic.woff2) format("woff2"), url(Config-LightItalic.woff) format("woff"), url(Config-LightItalic.ttf) format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: config rounded;
+    src: url(ConfigRoundedLightItalic.eot);
+    src: local("Config Rounded Light Italic"), local("ConfigRoundedLightItalic"), url(ConfigRoundedLightItalic.eot?#iefix) format("embedded-opentype"), url(ConfigRoundedLightItalic.woff2) format("woff2"), url(ConfigRoundedLightItalic.woff) format("woff"), url(ConfigRoundedLightItalic.ttf) format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap
+}
+
+@font-face {
+    font-family: config rounded;
+    src: url(ConfigRoundedSemibold.eot);
+    src: local("Config Rounded Semibold"), local("ConfigRoundedSemibold"), url(ConfigRoundedSemibold.eot?#iefix) format("embedded-opentype"), url(ConfigRoundedSemibold.woff2) format("woff2"), url(ConfigRoundedSemibold.woff) format("woff"), url(ConfigRoundedSemibold.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap
+}
+
+:root {
+    font-family: config rounded, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif
+}
+
+@supports(font-variation-settings:normal) {
+    :root {
+        -webkit-font-feature-settings: "tnum" off, "calt" on, "liga" on, "dlig" on, "frac" off, "case" on, "zero" off;
+        -moz-font-feature-settings: "tnum" off, "calt" on, "liga" on, "dlig" on, "frac" off, "case" on, "zero" off;
+        -ms-font-feature-settings: "tnum" off, "calt" on, "liga" on, "dlig" on, "frac" off, "case" on, "zero" off;
+        font-feature-settings: "tnum" off, "calt" on, "liga" on, "dlig" on, "frac" off, "case" on, "zero" off
+    }
+}
+
+body * {
+    box-sizing: border-box
+}
+
+html {
+    font-size: 1.125em
+}
+
+body {
+    font-weight: 400;
+    line-height: 1.75;
+    margin: 0;
+    padding: 2rem;
+    max-width: 1200px
+}
+
+p {
+    margin-bottom: 1rem;
+    hyphens: auto;
+    -webkit-hyphens: auto
+}
+
+a:link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .14rem;
+    text-decoration-style: dotted
+}
+
+a:link,
+a:visited {
+    color: #444;
+    text-decoration-color: #666
+}
+
+header a:link,
+header a:visited {
+    text-decoration-line: none;
+    color: #000
+}
+
+ul,
+ol {
+    padding-left: 22px
+}
+
+blockquote {
+    font-weight: 300;
+    margin: 2rem 0;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    border-left: 2px dotted #ddd
+}
+
+hr {
+    border: 0;
+    border-top: 1px dashed #888;
+    padding: 0;
+    margin: 3rem 0 2rem
+}
+
+table {
+    margin: 2rem 0
+}
+
+td,
+th {
+    padding: 0 .5rem;
+    line-height: 1.5;
+    vertical-align: text-top
+}
+
+img,
+iframe {
+    width: 100%
+}
+
+img {
+    border-radius: 5px
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 3rem 0 1.38rem;
+    font-weight: 600;
+    line-height: 1.2
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.488rem
+}
+
+h2 {
+    font-size: 2.074rem
+}
+
+h3 {
+    font-size: 1.728rem
+}
+
+h4 {
+    font-size: 1.44rem
+}
+
+h5 {
+    font-size: 1.2rem
+}
+
+small,
+.text-small,
+.note,
+table:not(#frontpage) {
+    font-size: .833rem
+}
+
+.note {
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    max-width: 50ch
+}
+
+@media(min-width:42rem) {
+    p {
+        hyphens: manual;
+        -webkit-hyphens: manual
+    }
+
+    html {
+        font-size: 100%
+    }
+
+    h1 {
+        font-size: 3.052rem
+    }
+
+    h2 {
+        font-size: 2.441rem
+    }
+
+    h3 {
+        font-size: 1.953rem
+    }
+
+    h4 {
+        font-size: 1.563rem
+    }
+
+    h5 {
+        font-size: 1.25rem
+    }
+}
+
+header,
+header>div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem
+}
+
+main,
+header {
+    max-width: 32rem;
+    margin: 0 auto
+}
+
+main {
+    margin-top: 3.5rem;
+    margin-bottom: 20rem
+}
+
+@media(min-width:42rem) {
+    body {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 3rem;
+        justify-items: left
+    }
+
+    main {
+        margin: 0 0 20rem;
+        margin-right: 6rem
+    }
+
+    main :first-child {
+        margin-top: 0
+    }
+
+    header,
+    header>div {
+        flex-direction: column;
+        justify-content: right;
+        text-align: right
+    }
+
+    header {
+        margin: 0;
+        margin-top: 1rem;
+        justify-self: right
+    }
+}
+
+.scroll-x {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap
+}
+
+.big-list li {
+    padding-bottom: 1rem
+}
+
+.break-words {
+    word-break: break-all
+}
+
+img.small,
+.small img {
+    max-width: 12rem;
+    margin-left: 1rem
+}
+
+@media(prefers-color-scheme:dark) {
+    .dark-invert {
+        filter: invert(1)
+    }
+}
+
+.no-hyphens {
+    hyphens: manual;
+    -webkit-hyphens: manual
+}
+
+#recent,
+#current,
+#soon {
+    margin: 0
+}
+
+#recent td,
+#current td,
+#soon td {
+    padding: .25rem
+}
+
+@media(max-width:30rem) {
+
+    #recent td:first-child,
+    #current td:first-child,
+    #soon td:first-child {
+        display: none
+    }
+}
+
+table#music {
+    font-size: .75rem
+}
+
+table#music td {
+    padding: .25rem .5rem
+}
+
+table#music td:nth-child(1) {
+    font-size: 1.2rem;
+    font-weight: 600
+}
+
+#books td {
+    padding: 0 .25rem;
+    max-width: 18rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: .75rem
+}
+
+#books td:nth-child(3) {
+    font-weight: 300;
+    font-size: .6rem
+}
+
+@media(max-width:42rem) {
+    #books {
+        display: block;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        overflow-x: auto;
+        white-space: nowrap
+    }
+
+    #books td {
+        max-width: initial;
+        font-size: .6rem
+    }
+
+    #books td:nth-child(3) {
+        display: none
+    }
+}
+
+#frontpage td {
+    line-height: 1.5;
+    padding: .25rem
+}
+
+#frontpage a {
+    text-decoration: none;
+    color: #000
+}
+
+#frontpage strong a {
+    font-weight: 400
+}
+
+#frontpage strong a::before {
+    content: "☆ "
+}
+
+#frontpage em {
+    font-style: normal;
+    color: #666;
+    font-size: .75em;
+    font-weight: 300;
+    margin-left: .25rem
+}
+
+@media(max-width:26rem) {
+    #frontpage em {
+        display: none
+    }
+}
+
+@media(prefers-color-scheme:dark) {
+
+    html,
+    body {
+        background: #151515;
+        color: #fff
+    }
+
+    a:link,
+    a:visited {
+        color: #ddd;
+        text-decoration-color: #bbb
+    }
+
+    header a:link,
+    header a:visited {
+        text-decoration-line: none;
+        color: #fff
+    }
+
+    blockquote {
+        border-left: 2px dotted #444
+    }
+
+    #frontpage a {
+        color: #fff
+    }
+
+    #frontpage em {
+        color: #bbb
+    }
+}
+
+pre,
+pre>code,
+code[class*=language-],
+pre[class*=language-] {
+    font-family: Monaco, Menlo, Consolas, courier new, monospace;
+    font-size: .75rem;
+    line-height: 1.42;
+    -webkit-text-size-adjust: 100%
+}
+
+pre>code,
+code[class*=language-] {
+    font-size: .75rem;
+    margin-left: 2.5%;
+    display: block
+}
+
+@media(prefers-color-scheme:light) {
+
+    code[class*=language-],
+    pre[class*=language-] {
+        color: #90a4ae;
+        background: #fafafa
+    }
+
+    code[class*=language-]::-moz-selection,
+    pre[class*=language-]::-moz-selection,
+    code[class*=language-] ::-moz-selection,
+    pre[class*=language-] ::-moz-selection {
+        background: #cceae7;
+        color: #263238
+    }
+
+    code[class*=language-]::selection,
+    pre[class*=language-]::selection,
+    code[class*=language-] ::selection,
+    pre[class*=language-] ::selection {
+        background: #cceae7;
+        color: #263238
+    }
+
+    .language-css>code,
+    .language-sass>code,
+    .language-scss>code {
+        color: #f76d47
+    }
+
+    [class*=language-] .namespace {
+        opacity: .7
+    }
+
+    .token.atrule {
+        color: #7c4dff
+    }
+
+    .token.attr-name {
+        color: #39adb5
+    }
+
+    .token.attr-value {
+        color: #f6a434
+    }
+
+    .token.attribute {
+        color: #f6a434
+    }
+
+    .token.boolean {
+        color: #7c4dff
+    }
+
+    .token.builtin {
+        color: #39adb5
+    }
+
+    .token.cdata {
+        color: #39adb5
+    }
+
+    .token.char {
+        color: #39adb5
+    }
+
+    .token.class {
+        color: #39adb5
+    }
+
+    .token.class-name {
+        color: #6182b8
+    }
+
+    .token.comment {
+        color: #aabfc9
+    }
+
+    .token.constant {
+        color: #7c4dff
+    }
+
+    .token.deleted {
+        color: #e53935
+    }
+
+    .token.doctype {
+        color: #aabfc9
+    }
+
+    .token.entity {
+        color: #e53935
+    }
+
+    .token.function {
+        color: #7c4dff
+    }
+
+    .token.hexcode {
+        color: #f76d47
+    }
+
+    .token.id {
+        color: #7c4dff;
+        font-weight: 700
+    }
+
+    .token.important {
+        color: #7c4dff;
+        font-weight: 700
+    }
+
+    .token.inserted {
+        color: #39adb5
+    }
+
+    .token.keyword {
+        color: #7c4dff
+    }
+
+    .token.number {
+        color: #f76d47
+    }
+
+    .token.operator {
+        color: #39adb5
+    }
+
+    .token.prolog {
+        color: #aabfc9
+    }
+
+    .token.property {
+        color: #39adb5
+    }
+
+    .token.pseudo-class {
+        color: #f6a434
+    }
+
+    .token.pseudo-element {
+        color: #f6a434
+    }
+
+    .token.punctuation {
+        color: #39adb5
+    }
+
+    .token.regex {
+        color: #6182b8
+    }
+
+    .token.selector {
+        color: #e53935
+    }
+
+    .token.string {
+        color: #f6a434
+    }
+
+    .token.symbol {
+        color: #7c4dff
+    }
+
+    .token.tag {
+        color: #e53935
+    }
+
+    .token.unit {
+        color: #f76d47
+    }
+
+    .token.url {
+        color: #e53935
+    }
+
+    .token.variable {
+        color: #e53935
+    }
+}

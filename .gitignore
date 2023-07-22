@@ -1,0 +1,9 @@
+*.md
+*.jpeg
+*.jpg
+*.png
+*.gif
+*.svg
+
+
+/www/*
