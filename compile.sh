@@ -103,7 +103,7 @@ for file in $(ls -t ./entries/soon/*.md); do
 done
 
 cat ./tmp/recent.html ./tmp/current.html ./tmp/soon.html > ./tmp/index_body.html
-insert_line=$(($(grep -n "auto-generate-marker" ./tmp/soon.html | cut -f1 -d: | head -1 )))
+insert_line=$(($(grep -n "auto-generate-marker" ./www/index.html | cut -f1 -d: | head -1 )))
 
 sed -i "${insert_line}r ./tmp/index_body.html" ./www/index.html
 sed -i "${insert_line}r ./tmp/archive.html" ./www/archive.html
