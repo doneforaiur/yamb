@@ -20,4 +20,5 @@ You can setup `cron` for running `compile.sh` and `rsync` commands which will ge
 - [ ] `Recent` section should include only 10 most recent entries. For now it's handled by checking the line count of the generated HTML, which is not ideal.
 - [x] `Current` section includes entries based on `_` prefix of the Markdown file, also not good. (done in [fce9acc](https://github.com/doneforaiur/yamb/commit/fce9acca2fa2cbdce26c03b269a52d3e1208eec6))
 - [x] Generate pages that are not shown as entries, but standalone articles. `books.html`, `podcasts.html`, etc.
+- [ ] `ls -t` and `stat` commands are not ideal since it sorts by modification time, not creation time. `--time=birth` is not available on *all* unix systems. Sorting the files based on the first line of the file which will include the desired date is a better solution. If date not present, take modification time.
 - [ ] RSS.

@@ -49,6 +49,7 @@ for file in $(ls -t ./entries/standalone/*.md); do
 done
 
 # recent and archive entries
+index=0
 for file in $(ls -tr ./entries/recent/*.md); do
     basefilename="$(basename  $file)"
 
@@ -73,7 +74,7 @@ for file in $(ls -tr ./entries/recent/*.md); do
     rm ./tmp/archive_table.html
 
 
-    if [ "$(wc -l < ./tmp/recent.html)" -gt 60 ]; then
+    if [ $index -gt 9 ]; then
         continue
     fi
 
@@ -84,6 +85,8 @@ for file in $(ls -tr ./entries/recent/*.md); do
     sed -i "${insert_line}r ./tmp/recent_table.html" "./tmp/recent.html"
 
     rm ./tmp/recent_table.html
+
+    index=$((index+1))
 done
 
 for file in $(ls -t ./entries/soon/*.md); do
