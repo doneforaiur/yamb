@@ -1,7 +1,7 @@
 # YAMB
 **Y**et **A**nother **M**icro **B**log.
 
-Heavily inspired by [WorstPress](https://github.com/surprisetalk/worstpress) which is written by Taylor Troesh. 
+Static site generator for micro blogs. Heavily inspired by [WorstPress](https://github.com/surprisetalk/worstpress) which is written by Taylor Troesh. 
 
 ## Prerequisites
 - Pandoc
@@ -11,9 +11,15 @@ Heavily inspired by [WorstPress](https://github.com/surprisetalk/worstpress) whi
  2. Run `compile.sh` script.
  3. Serve `www` directory.
 
-## Neat tricks
+## Important notes about Markdown files
+- The name of the Markdown file will be used as the title of the blog entry.
+- First line of the Markdown file will be used as the date of the blog entry and recent entries will be sorted alphabetially according to this date.
 
-You can setup `cron` for running `compile.sh` and `rsync` commands which will generate HTMLs and copy them to a remote server periodically. Voilà! You don't even have to think about the boring stuff. An example cron file is also provided.
+## Neat tricks
+- You can setup `cron` for running `compile.sh` and `rsync` commands which will generate HTMLs and copy them to a remote server periodically. Voilà! You don't even have to think about the boring stuff. An example cron file is also provided.
+- I use `<sub><sup>DATE</sup></sub>` format for the first line of my entries so that the date is small and *neat*. 
+
+---
 
 ## TODOs
 - [x] The insertion of generated `HTML` files in templates is dependant on the line which we are trying to insert. This can be done without using `sed -i "50r ./tmp/archive.html" ./www/archive.html`. (done in [2241690](https://github.com/doneforaiur/yamb/commit/224169060c72eb4c1dcdc71039bd4424881cc035))
