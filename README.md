@@ -1,7 +1,7 @@
 # YAMB
 **Y**et **A**nother **M**icro **B**log.
 
-Static site generator for micro blogs. Heavily inspired by [WorstPress](https://github.com/surprisetalk/worstpress) which is written by Taylor Troesh. 
+Static site generator for micro blogs. Heavily inspired by [WorstPress](https://github.com/surprisetalk/worstpress). 
 
 Want a preview? Check out [my blog](http://mirza.town).
 
@@ -14,6 +14,7 @@ Want a preview? Check out [my blog](http://mirza.town).
  3. Serve `www` directory.
 
 ## Important notes about Markdown files and folder structure
+- `About` page will be generated from `templates/about.md` file.
 - The name of the Markdown file will be used as the title of the blog entry.
 - Category of the blog entry is determinted by the folder name of the Markdown file. 
 - If you have an idea for a blog entry place it in the `entries/soon` folder. 

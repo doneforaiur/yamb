@@ -20,7 +20,7 @@ cp ./styles/fonts/* ./www/
 
 tmp_file=$(mktemp)
 awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/current/* > "$tmp_file"
-sorted_tmp_file=$(sort -t ':' -k1 "$tmp_file")
+sorted_tmp_file=$(sort -t '/' -k 3,3 -k 2,2 -k 1,1 "$tmp_file")
 
 # current entries
 while IFS=':' read -r entry_date file; do
@@ -50,7 +50,7 @@ for file in $(ls -t ./entries/standalone/*.md); do
 done
 
 awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/recent/* > "$tmp_file"
-sorted_tmp_file=$(sort -t ':' -k1 "$tmp_file")
+sorted_tmp_file=$(sort -t '/' -k 3,3 -k 2,2 -k 1,1 "$tmp_file")
 
 # recent and archive entries
 index=0
