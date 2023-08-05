@@ -39,4 +39,4 @@ Want a preview? Check out [my blog](http://mirza.town).
 - [x] Pages with not enough text to fill the full width of the `body` appear to be more narrow than the rest. (done in [6ee1ec4](https://github.com/doneforaiur/yamb/commit/6ee1ec4f0ce08472acbaa94c506a6e2983ad4204)) 
 - [ ] `Current` and `Soon` sections be displayed only if there are entries in them. 
 - [ ] Better handling of temporary files for reability.
-- [ ] RSS.
+- [x] RSS. (Wohoo! done in [55d7893](https://github.com/doneforaiur/yamb/commit/55d789326f623f92670920c6fecf60529fe23f5a))
