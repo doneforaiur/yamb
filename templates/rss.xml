@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mirza.town</title>
+    <link>http://mirza.town</link>
+    <description>mirza.town newspaper</description>
+    <generator>YAMB - https://github.com/doneforaiur/yamb</generator>
+    <language>en-us</language>
+
+    <lastBuildDate><!-- last-build-date-marker --></lastBuildDate>
+
+    <atom:link href="http://mirza.town/rss.xml" rel="self" type="application/rss+xml"/>
+  
+    <!-- auto-generate-marker -->
+
+    
+  </channel>
+</rss>

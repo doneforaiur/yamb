@@ -15,6 +15,10 @@ cp ./templates/header.html ./www/index.html
 cp ./templates/header.html ./www/about.html
 cp ./templates/header.html ./www/archive.html
 
+cp ./templates/rss.xml ./www/rss.xml
+rss_date=$(date '+%a, %d %b %Y %H:%M:%S %z')
+sed -i "s/<!-- last-build-date-marker -->/$rss_date/g" ./www/rss.xml
+
 cp ./styles/style.css ./www/style.css
 cp ./styles/fonts/* ./www/
 
@@ -71,6 +75,16 @@ while IFS=':' read -r entry_date file; do
 
     sed -i "${insert_line}r ./tmp/archive_table.html" ./tmp/archive.html
     rm ./tmp/archive_table.html
+
+    # RSS feed generation
+    
+    insert_line=$(( $(grep -n "auto-generate-marker" ./www/rss.xml | cut -f1 -d: | head -1) ))
+    markdown_to_text=$(pandoc -f markdown -t plain "$file")
+    # | sed 's/"/\&quot;/g')
+    line_to_insert="<item><title>"$title_of_entry"</title><link>http://mirza.town/entries/"${basefilename%.*}.html"</link><guid>http://mirza.town/entries/"${basefilename%.*}.html"</guid><description>"${markdown_to_text}"</description></item>"
+    echo $line_to_insert > ./tmp/rss_entry.xml
+
+    sed -i "${insert_line}r ./tmp/rss_entry.xml" ./www/rss.xml
 
     # current entries count check
     if [ $index -gt 9 ]; then
