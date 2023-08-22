@@ -38,6 +38,6 @@ Want a preview? Check out [my blog](http://mirza.town).
 - [x] Generate pages that are not shown as entries, but standalone articles. `books.html`, `podcasts.html`, etc.
 - [x] `ls -t` and `stat` commands are not ideal since it sorts by modification time, not creation time. `--time=birth` is not available on *all* filesystems. Sorting the files based on the first line of the file which will include the desired date is a better solution. If date not present, take modification time. (done in [6ee1ec4](https://github.com/doneforaiur/yamb/commit/6ee1ec4f0ce08472acbaa94c506a6e2983ad4204))
 - [x] Pages with not enough text to fill the full width of the `body` appear to be more narrow than the rest. (done in [6ee1ec4](https://github.com/doneforaiur/yamb/commit/6ee1ec4f0ce08472acbaa94c506a6e2983ad4204)) 
-- [ ] `Current` and `Soon` sections be displayed only if there are entries in them. 
+- [x] `Current` and `Soon` sections be displayed only if there are entries in them. (done in [ccc7b47](https://github.com/doneforaiur/yamb/commit/ccc7b471c65e32c06d78ae14a2a3ffaae09a68c5))
 - [ ] Better handling of temporary files for reability.
 - [x] RSS. (Wohoo! done in [55d7893](https://github.com/doneforaiur/yamb/commit/55d789326f623f92670920c6fecf60529fe23f5a))
