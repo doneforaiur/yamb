@@ -27,6 +27,7 @@ Want a preview? Check out [my blog](http://mirza.town).
 ## Neat tricks
 - You can setup `cron` for running `compile.sh` and `rsync` commands which will generate HTMLs and copy them to a remote server periodically. Voilà! You don't even have to think about the boring stuff. An example cron file is also provided.
 - I use `<sub><sup>DATE</sup></sub>` format for the first line of my entries so that the date is small and *neat*. 
+- Want to use LaTeX equations in your blog? Check out [this](http://mirza.town/entries/latex_in_markdown_to_html_using_pandoc.html) blog post. YAMB will not automatically add MathJax to your pages so it doesn't load on every page.
 
 ---
 

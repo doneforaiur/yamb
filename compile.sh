@@ -23,11 +23,24 @@ cp ./styles/style.css ./www/style.css
 cp ./styles/fonts/* ./www/
 
 tmp_file=$(mktemp)
-awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/current/* > "$tmp_file"
-sorted_tmp_file=$(sort -t '/' -k 3,3 -k 2,2 -k 1,1 "$tmp_file")
+
+# no current entries check
+current_entries_count=$(ls ./entries/current/ | wc -l)
+if [ $current_entries_count -eq 0 ]; then
+    echo "<tr><td style=\"text-align: left;\">Nothing currently in the making. :^)</td></tr>" >> ./tmp/current_table.html
+    insert_line=$(( $(grep -n "auto-generate-marker" ./tmp/current.html | cut -f1 -d: | head -1)))
+    sed -i -e "${insert_line}r ./tmp/current_table.html" "./tmp/current.html"
+    sorted_tmp_file=""
+else
+    awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/current/* > "$tmp_file"
+    sorted_tmp_file=$(sort -t '/' -k 3,3 -k 2,2 -k 1,1 "$tmp_file")
+fi
 
 # current entries
 while IFS=':' read -r entry_date file; do
+    if [ -z "$entry_date" ] || [ -z "$file" ]; then
+        break
+    fi
     basefilename="$(basename  $file)"
 
     title_of_entry=$(echo "$basefilename" | sed 's/\..*$//;s/_/ /g')
@@ -101,10 +114,22 @@ while IFS=':' read -r entry_date file; do
     index=$((index+1))
 done <<< "$sorted_tmp_file"
 
-awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/soon/* > "$tmp_file"
-sorted_tmp_file=$(sort -r -t ':' -k1 "$tmp_file")
+# no soon entries check
+soon_entries_count=$(ls ./entries/soon/ | wc -l)
+if [ $soon_entries_count -eq 0 ]; then
+    echo "<tr><td style=\"text-align: left;\">Nothing planned. :^)</td></tr>" >> ./tmp/soon_table.html
+    insert_line=$(( $(grep -n "auto-generate-marker" ./tmp/soon.html | cut -f1 -d: | head -1)))
+    sed -i -e "${insert_line}r ./tmp/soon_table.html" "./tmp/soon.html"
+    sorted_tmp_file=""
+else
+    awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/soon/* > "$tmp_file"
+    sorted_tmp_file=$(sort -r -t ':' -k1 "$tmp_file")
+fi
 
 while IFS=':' read -r entry_date file; do
+    if [ -z "$entry_date" ] || [ -z "$file" ]; then
+        break
+    fi
     basefilename="$(basename  $file)"
     title_of_entry=$(echo "$basefilename" | sed 's/\..*$//;s/_/ /g')
 
