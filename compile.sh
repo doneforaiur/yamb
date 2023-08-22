@@ -33,7 +33,7 @@ if [ $current_entries_count -eq 0 ]; then
     sorted_tmp_file=""
 else
     awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/current/* > "$tmp_file"
-    sorted_tmp_file=$(sort -t '/' -k 3,3 -k 2,2 -k 1,1 "$tmp_file")
+    sorted_tmp_file=$(sort -r -t '/' -k 2,2 -k 1,1 "$tmp_file")
 fi
 
 # current entries
@@ -123,7 +123,8 @@ if [ $soon_entries_count -eq 0 ]; then
     sorted_tmp_file=""
 else
     awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/soon/* > "$tmp_file"
-    sorted_tmp_file=$(sort -r -t ':' -k1 "$tmp_file")
+    sorted_tmp_file=$(sort -r -t '/' -k 2,2 -k 1,1 "$tmp_file")
+
 fi
 
 while IFS=':' read -r entry_date file; do
