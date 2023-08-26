@@ -5,5 +5,5 @@
 *.gif
 *.svg
 
-
 /www/*
+/entries/code/*

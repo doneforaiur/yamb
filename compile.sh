@@ -22,6 +22,8 @@ sed -i "s/<!-- last-build-date-marker -->/$rss_date/g" ./www/rss.xml
 cp ./styles/style.css ./www/style.css
 cp ./styles/fonts/* ./www/
 
+cp -r ./entries/code ./www/code
+
 tmp_file=$(mktemp)
 
 # no current entries check
@@ -67,13 +69,12 @@ for file in $(ls -t ./entries/standalone/*.md); do
 done
 
 awk -v RS='\r?\n' 'FNR==1 {print $0 ":" FILENAME}' ./entries/recent/* > "$tmp_file"
-sorted_tmp_file=$(sort -t '/' -k 3,3 -k 2,2 -k 1,1 "$tmp_file")
+sorted_tmp_file=$(sort -r -t '/' -k 3,3 -k 2,2 -k 1,1 "$tmp_file")
 
 # recent and archive entries
 index=0
 while IFS=':' read -r entry_date file; do
     basefilename="$(basename  $file)"
-
     title_of_entry=$(echo "$basefilename" | sed 's/\..*$//;s/_/ /g')
 
     pandoc -f markdown -t html "$file" > ./tmp/bare_"${basefilename%.*}".html
@@ -107,6 +108,7 @@ while IFS=':' read -r entry_date file; do
     echo "<tr><td style=\"text-align: left;\">$entry_date</td><td style=\"text-align: left;\"><a href=\"entries/${basefilename%.*}.html\">$title_of_entry</a></td></tr>" >> ./tmp/recent_table.html
 
     insert_line=$(( $(grep -n "auto-generate-marker" ./tmp/recent.html | cut -f1 -d: | head -1) ))
+    insert_line=$((insert_line-1))
     sed -i "${insert_line}r ./tmp/recent_table.html" "./tmp/recent.html"
 
     rm ./tmp/recent_table.html
