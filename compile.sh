@@ -77,7 +77,7 @@ while IFS=':' read -r entry_date file; do
     basefilename="$(basename  $file)"
     title_of_entry=$(echo "$basefilename" | sed 's/\..*$//;s/_/ /g')
 
-    pandoc -f markdown -t html "$file" > ./tmp/bare_"${basefilename%.*}".html
+    pandoc -s --metadata title=" " -t slidy --highlight-style my.theme -f markdown -t html "$file" > ./tmp/bare_"${basefilename%.*}".html
     cp ./templates/header.html ./www/entries/"${basefilename%.*}".html
 
     insert_line=$(( $(grep -n "auto-generate-marker" ./www/entries/"${basefilename%.*}".html | cut -f1 -d: | head -1) ))
@@ -86,6 +86,7 @@ while IFS=':' read -r entry_date file; do
     echo "<tr><td style=\"text-align: left;\">$entry_date</td><td style=\"text-align: left;\"><a href=\"entries/${basefilename%.*}.html\">$title_of_entry</a></td></tr>" >> ./tmp/archive_table.html
 
     insert_line=$(( $(grep -n "auto-generate-marker" ./tmp/archive.html | cut -f1 -d: | head -1) ))
+    insert_line=$((insert_line-1))
 
     sed -i "${insert_line}r ./tmp/archive_table.html" ./tmp/archive.html
     rm ./tmp/archive_table.html
